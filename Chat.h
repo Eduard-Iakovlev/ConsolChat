@@ -13,11 +13,13 @@ public:
 
 	void registration(int);
 
-	void shouLisrUsers();
+	void showLisrUsers();
 
 	int sizeList();
 
 private:
-	std::vector<User> users;
+	std::vector<User> _users;
+	std::vector<Massage> _massages;
+
 };
 

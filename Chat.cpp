@@ -29,29 +29,30 @@ void Chat::registration(int menu)
 {
 	User user;
 	user.registration(menu);
-	users.push_back(user);
+	_users.push_back(user);
 	cout << "\n Вы зарегестрированы как:\n";
 	user.shouUser();	
 }
 
 
-void Chat::shouLisrUsers()
+void Chat::showLisrUsers()
 {
 	int counter{ 0 };
 
-	for (User i : users)
+	cout << " Участники чата:\n\n";
+
+	for (User i : _users)
 	{
 		counter++;
 		cout << counter << " - ";
 		i.showUserName();
 	}
 	User user;
-
 }
 
 int Chat::sizeList()
 {
-	return users.size();
+	return _users.size();
 }
 
 

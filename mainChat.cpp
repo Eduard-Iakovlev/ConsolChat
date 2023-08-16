@@ -34,8 +34,9 @@ int main()
 			cout << " вы пока единственный пользователь. \n Зайдите попозже, когда ещё кто ни будь зарегестрируется.\n";
 			Sleep(2000);
 			system("cls");
+			continue;
 		}
-		else chat.shouLisrUsers();
+		else chat.showLisrUsers();
 
 	}
 
