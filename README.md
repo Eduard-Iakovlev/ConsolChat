@@ -3,10 +3,9 @@
 # Автор: Яковлев Эдуард
 реализация осуществляется индивидуально (по крайней мере пока)
 # Используемые библиотеки
-#include <iostream>
-#include <string>
-#include <ostream>
-#include <vector>
-#include <conio.h>
-#include <string>
-#include <Windows.h>
+iostream,
+string,
+vector,
+conio.h,
+string,
+Windows.h.
