@@ -128,12 +128,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Chat.cpp" />
+    <ClCompile Include="mainChat.cpp" />
     <ClCompile Include="Function.cpp" />
-    <ClCompile Include="Registration.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chat.h" />
     <ClInclude Include="Function.h" />
-    <ClInclude Include="Registration.h" />
+    <ClInclude Include="Libraries.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
