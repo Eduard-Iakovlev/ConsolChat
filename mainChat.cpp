@@ -23,21 +23,28 @@ int main()
 			work = false;
 			break;
 		}
-		else if (menu == 1) std::cout << " Вход выполнен\n";
+		else if (menu == 1)
+		{
+			std::cout << " Вход \n";
+			chat.registration(menu);
+		}
 		else
 		{
 			std::cout << " Ргистрация:\n";
 			chat.registration(menu);
-
 		}
 		if (chat.sizeList() == 1)
 		{
 			cout << " вы пока единственный пользователь. \n Зайдите попозже, когда ещё кто ни будь зарегестрируется.\n";
-			Sleep(2000);
+			chat.out_user();
+			Sleep(3000);
 			system("cls");
 			continue;
 		}
-		else chat.showListUsers();
+		else
+		{
+			menu = chat.menu_chat();
+		}
 
 	}
 

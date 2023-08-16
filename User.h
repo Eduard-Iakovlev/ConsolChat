@@ -13,10 +13,13 @@ public:
 	User(string, string, string);
 
 	void registration(int);
-	void shouUser();
+	void showUser();
+	void showUser(string);
 	void showUserName();
 
-	string user_login(int);
+	string user_name();
+	string user_login();
+	string user_password();
 
 
 private:

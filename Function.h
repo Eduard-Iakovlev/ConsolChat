@@ -29,7 +29,11 @@ template<typename t> t checkInput(const char first, const char last)
 				counter--;
 			}
 		}
-		else if (str[counter] == 13) break;
+		else if (str[counter] == 13)
+		{
+			if (str[0] == 13) continue;
+			else break;
+		}
 		else
 		{
 			str[counter] = '\0';
