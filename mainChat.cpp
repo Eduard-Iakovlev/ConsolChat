@@ -9,6 +9,7 @@ int main()
 	SetConsoleCP(1251);
 
 	bool work{ true };
+	bool check_user = false;
 	int menu{ 0 };
 
 	
@@ -26,18 +27,24 @@ int main()
 		else if (menu == 1)
 		{
 			std::cout << " Вход \n";
-			chat.registration(menu);
+			chat.registration(menu, &check_user);
+			if (check_user == false)
+			{
+				Sleep(2500);
+				system("cls");
+				continue;
+			}
 		}
 		else
 		{
 			std::cout << " Ргистрация:\n";
-			chat.registration(menu);
+			chat.registration(menu, &check_user);
 		}
 		if (chat.sizeList() == 1)
 		{
 			cout << " вы пока единственный пользователь. \n Зайдите попозже, когда ещё кто ни будь зарегестрируется.\n";
 			chat.out_user();
-			Sleep(3000);
+			Sleep(2500);
 			system("cls");
 			continue;
 		}

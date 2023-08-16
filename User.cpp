@@ -8,14 +8,10 @@ void User::registration(int menu)
 {
 	if (menu == 1)
 	{
-		bool check_user;
-		while (true)
-		{
 			cout << "\n ¬ведите логин: ";
 			_login = checkInput<string>(48, 126);
 			cout << "\n ¬ведите пароль: ";
 			_password = checkInput<string>(48, 126);
-		}
 	}
 	else
 	{

@@ -39,17 +39,36 @@ int Chat::menu_chat()
 	return checkInput<int>('1', '3');
 }
 
-void Chat::registration(int menu)
+void Chat::registration(int menu, bool* check_user)
 {
 	User user;
+	*check_user = false;
 	user.registration(menu);
 	if (menu == 1)
 	{
+		int counter = 0;
+
+		for (User i: _users)
+		{
+			if (user.user_login() == i.user_login() && user.user_password() == i.user_password())
+			{
+				get_user(counter, user.user_login(), user.user_name());
+				*check_user = true;
+			}
+		}
+		if (*check_user == false)
+		{
+			cout << "\n Не верный логин или пароль!";
+			Sleep(2000);
+			return;
+		}
+
 		cout << "\n\n Вы вошли как:\n\n";
 		user.showUser(activ_user_login());
 	}
 	else
 	{
+		*check_user = true;
 		_users.push_back(user);
 		int size = _users.size()-1;
 		get_user(size, _users.at(size).user_login(), _users.at(size).user_name());

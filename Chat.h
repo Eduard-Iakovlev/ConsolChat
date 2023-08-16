@@ -13,7 +13,7 @@ public:
 	int logOrReg();
 	int menu_chat();
 
-	void registration(int);
+	void registration(int, bool*);
 
 	void showListUsers();
 	string activ_user_login();
