@@ -6,7 +6,7 @@ using std::cout;
 
 template<typename t> t checkInput(const char first, const char last)
 {
-	char str[256];
+	char str[256]{};
 	int counter{ 0 };
 
 	while (true)
@@ -32,12 +32,13 @@ template<typename t> t checkInput(const char first, const char last)
 		else if (str[counter] == 13) break;
 		else
 		{
+			str[counter] = '\0';
 			cout << " " << "\b";
 		}
 	}
 
 	if constexpr (std::is_same_v<t, int>)  return atoi(str);
 	else return string(str);
-	
+			
 }
 

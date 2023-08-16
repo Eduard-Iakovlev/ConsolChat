@@ -37,12 +37,16 @@ void Chat::registration(int menu)
 
 void Chat::shouLisrUsers()
 {
+	int counter{ 0 };
+
 	for (User i : users)
 	{
-		cout << " 1 - ";
+		counter++;
+		cout << counter << " - ";
 		i.showUserName();
-		cout << "\n";
 	}
+	User user;
+
 }
 
 int Chat::sizeList()

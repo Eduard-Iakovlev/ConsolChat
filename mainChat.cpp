@@ -9,6 +9,7 @@ int main()
 
 	bool work{ true };
 	int menu{ 0 };
+
 	
 	Chat chat;
 

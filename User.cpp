@@ -35,7 +35,7 @@ void User::shouUser()
 
 void User::showUserName()
 {
-	cout << " Èìÿ:" << _name << "\n";
+	cout << _name << "\n";
 }
 
 
