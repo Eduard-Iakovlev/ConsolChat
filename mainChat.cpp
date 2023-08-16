@@ -1,4 +1,5 @@
 #include "Function.h"
+#include "Chat.h"
 
 
 
@@ -36,7 +37,7 @@ int main()
 			system("cls");
 			continue;
 		}
-		else chat.showLisrUsers();
+		else chat.showListUsers();
 
 	}
 

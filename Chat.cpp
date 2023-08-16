@@ -1,3 +1,4 @@
+#include "Chat.h"
 #include "Libraries.h"
 
 
@@ -35,7 +36,7 @@ void Chat::registration(int menu)
 }
 
 
-void Chat::showLisrUsers()
+void Chat::showListUsers()
 {
 	int counter{ 0 };
 

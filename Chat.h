@@ -1,7 +1,7 @@
 #pragma once
+#include "User.h"
+#include "Massage.h"
 #include "Libraries.h"
-
-
 
 class Chat
 {
@@ -13,7 +13,7 @@ public:
 
 	void registration(int);
 
-	void showLisrUsers();
+	void showListUsers();
 
 	int sizeList();
 

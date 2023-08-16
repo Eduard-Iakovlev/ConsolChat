@@ -7,10 +7,7 @@
 #include <Windows.h>
 
 
-#include"User.h"
-#include "Chat.h"
-#include "Function.h"
-#include "Massage.h"
+
 
 
 

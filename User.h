@@ -1,4 +1,5 @@
 #pragma once
+#include "Function.h"
 #include "Libraries.h"
 
 
@@ -14,6 +15,8 @@ public:
 	void registration(int);
 	void shouUser();
 	void showUserName();
+
+	string user_login(int);
 
 
 private:

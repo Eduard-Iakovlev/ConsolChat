@@ -10,7 +10,7 @@ public:
 
 private:
 	string _mass;
-	string _sender;
-	string _recipient;
+	string _login_sender;
+	string _login_recipient;
 };
 

@@ -1,3 +1,4 @@
+#include"User.h"
 #include "Libraries.h"
 
 User::User(string name, string login, string password) :
@@ -33,6 +34,11 @@ void User::shouUser()
 void User::showUserName()
 {
 	cout << _name << "\n";
+}
+
+string User::user_login(int index)
+{
+	return _login;
 }
 
 
