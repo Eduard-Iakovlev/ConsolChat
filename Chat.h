@@ -7,7 +7,7 @@ class Chat
 {
 public:
 	Chat();
-	Chat(string, string, string, int);
+	Chat(string, string, string, int, int);
 	void greeting();
 	void farewell();
 	int logOrReg();
@@ -16,11 +16,15 @@ public:
 	void registration(int, bool*);
 
 	void showListUsers();
-	string activ_user_login();
+	string active_user_login();
+	string active_user_name();
+	string active_recipient_login();
 	
 
 	void get_user(int, string, string);
 	void out_user();
+	void get_recipient(int);
+
 
 	int sizeList();
 
@@ -34,5 +38,6 @@ private:
 	string _active_recipient_login;
 	string _active_user_name;
 	int _active_user_ID;
+	int _active_recipient_ID;
 };
 

@@ -13,7 +13,7 @@ public:
 	User(string, string, string);
 
 	void showUser();
-	void showUser(string);
+	//void showUser(string);
 	void showUserName();
 
 	string user_name();

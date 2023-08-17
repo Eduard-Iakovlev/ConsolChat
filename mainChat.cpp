@@ -9,7 +9,8 @@ int main()
 	SetConsoleCP(1251);
 
 	bool work{ true };
-	bool check_user = false;
+	bool check_user{ false };
+	bool discussion{ true };
 	int menu{ 0 };
 
 	
@@ -48,10 +49,35 @@ int main()
 			system("cls");
 			continue;
 		}
-		else
+		
+		do
 		{
+			discussion = true;
 			menu = chat.menu_chat();
-		}
+			switch (menu)
+			{
+			case 1:
+				chat.showListUsers();
+				cout << " ID собеседника: ";
+				chat.get_recipient(menu);
+				chat.show_massege_list();
+				chat.send_massage();
+				break;
+			case 2:
+				chat.get_recipient(menu);
+				chat.send_massage();
+				break;
+			case 3:
+				chat.out_user();
+				discussion = false;
+				break;
+
+			default:
+				break;
+			}
+
+		} while (discussion);
+
 
 	}
 

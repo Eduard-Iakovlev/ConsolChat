@@ -7,7 +7,7 @@ Massage::Massage(string mass, string name, string sender, string recipient) :
 
 void Massage::create_massage(string name ,string login_sender, string login_recipient)
 {
-	_mass = checkInput<string>(48, 126);
+	_mass = checkInput<string>(21, 255);
 	_name_sender = name;
 	_login_sender = login_sender;
 	_login_recipient = login_recipient;
