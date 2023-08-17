@@ -23,6 +23,7 @@ public:
 	void get_user_name(string);
 	void get_user_login(string);
 	void get_user_password(string);
+
 	void clear_login();
 
 

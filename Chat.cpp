@@ -1,5 +1,6 @@
 #include "Chat.h"
 #include "Libraries.h"
+#include "Massage.h"
 
 
 Chat::Chat()
@@ -7,14 +8,14 @@ Chat::Chat()
 	greeting();
 }
 
-Chat::Chat(string active_user_login, string active_user_name, int active_user_ID) :
-	_active_user_login(active_user_login), _active_user_name(active_user_name), _active_user_ID(active_user_ID) {}
+Chat::Chat(string active_user_login, string active_recipient_login, string active_user_name,int active_user_ID) :
+	_active_user_login(active_user_login), _active_recipient_login(active_recipient_login), _active_user_name(active_user_name), _active_user_ID(active_user_ID) {}
 
 
 void Chat::greeting()
 {
 		cout << "\n          Добро пожаловать!\n\n";
-}
+} 
 
 void Chat::farewell()
 {
@@ -102,7 +103,6 @@ void Chat::registration(int menu, bool* check_user)
 	}
 }
 
-
 void Chat::showListUsers()
 {
 	int counter{ 0 };
@@ -140,6 +140,25 @@ void Chat::out_user()
 int Chat::sizeList()
 {
 	return _users.size();
+}
+
+void Chat::send_massage()
+{
+	Massage massage;
+	massage.create_massage(_active_user_login, _active_recipient_login, _active_user_name);
+	_massages.push_back(massage);
+}
+
+void Chat::show_massege_list()
+{
+	for (Massage i : _massages)
+	{
+		if (_active_user_login == i.login_sender() && _active_recipient_login == i.login_recipient()
+			|| _active_user_login == i.login_recipient() && _active_recipient_login == i.login_sender())
+		{
+			i.show_massage();
+		}
+	}
 }
 
 
