@@ -6,7 +6,7 @@ using std::cout;
 
 template<typename t> t checkInput(const char first, const char last)
 {
-	char str[256]{};
+	char str[256]{'\0'};
 	int counter{ 0 };
 
 	while (true)

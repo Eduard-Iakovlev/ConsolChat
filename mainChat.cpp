@@ -50,10 +50,11 @@ int main()
 			continue;
 		}
 		
+
 		do
 		{
-			discussion = true;
 			menu = chat.menu_chat();
+			discussion = true;
 			switch (menu)
 			{
 			case 1:

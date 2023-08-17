@@ -18,9 +18,6 @@
     <ClCompile Include="mainChat.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Function.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Chat.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>

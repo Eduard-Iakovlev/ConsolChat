@@ -165,7 +165,7 @@ void Chat::get_recipient(int menu)
 			else break;
 
 		} while (true);
-		id--;
+		id -= 1;
 		_active_recipient_login = _users.at(id).user_login();
 		_active_recipient_ID = id;
 	}

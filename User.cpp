@@ -8,13 +8,7 @@ void User::showUser()
 {
 	cout << " Имя:" << _name << "\n";
 	cout << " Логин:" << _login << "\n";
-	//cout << " Пароль:" << _password << "\n";
 }
-//void User::showUser(string login)
-//{
-//	cout << " Имя:" << _name << "\n";
-//	cout << " Логин:" << _login << "\n";
-//}
 void User::showUserName()
 {
 	cout << _name << "\n";
