@@ -18,13 +18,13 @@ int main()
 	while (work)
 	{
 		menu = chat.logOrReg();
-		if (menu == 3)
+		if (menu == 3) // выход из аккаунта
 		{
 			chat.farewell();
 			work = false;
 			break;
 		}
-		else if (menu == 1)
+		else if (menu == 1) // вход в аккаунт
 		{
 			std::cout << " ¬ход \n";
 			chat.registration(menu, &check_user);
@@ -35,7 +35,7 @@ int main()
 				continue;
 			}
 		}
-		else
+		else // регистраци€ нового пользоател€.
 		{
 			std::cout << " –гистраци€:\n";
 			chat.registration(menu, &check_user);

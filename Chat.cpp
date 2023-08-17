@@ -39,13 +39,16 @@ int Chat::menu_chat()
 	return checkInput<int>('1', '3');
 }
 
-void Chat::registration(int menu, bool* check_user)
+void Chat::registration(int menu, bool* check_user) 
 {
 	User user;
 	*check_user = false;
-	user.registration(menu);
 	if (menu == 1)
 	{
+		cout << "\n Введите логин: ";
+		user.get_user_name(checkInput<string>(48, 126));
+		cout << "\n Введите пароль: ";
+		user.get_user_password(checkInput<string>(48, 126));
 		int counter = 0;
 
 		for (User i: _users)
@@ -69,6 +72,28 @@ void Chat::registration(int menu, bool* check_user)
 	else
 	{
 		*check_user = true;
+		cout << " Введите имя (только русский алфавит): ";
+		user.get_user_name(checkInput<string>(192, 255));
+			cout << "\n Введите логин (латинский алфавит, цифры, символы): ";
+		bool check_login;
+		do
+		{
+			check_login = true;
+			user.get_user_login(checkInput<string>(48, 126));
+			for (User i : _users)
+			{
+				if (user.user_login() == i.user_login())
+				{
+					user.clear_login();
+					cout << "\n Данный логин занят, выбрите другой: ";
+					check_login = false;
+					break;
+				}
+			}
+		} while (!check_login);
+			cout << "\n Введите пароль (латинский алфавит, цифры, символы): ";
+			user.get_user_password(checkInput<string>(48, 126));
+		
 		_users.push_back(user);
 		int size = _users.size()-1;
 		get_user(size, _users.at(size).user_login(), _users.at(size).user_name());
