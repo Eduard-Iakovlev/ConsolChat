@@ -51,7 +51,7 @@ int main()
 		}
 		
 
-		do
+		do // работа аккаунта
 		{
 			menu = chat.menu_chat();
 			discussion = true;
