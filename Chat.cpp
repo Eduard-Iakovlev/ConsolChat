@@ -69,8 +69,6 @@ void Chat::registration(int menu, bool* check_user)
 			return;
 		}
 
-		//user.showUser(active_user_login());
-
 	}
 	else
 	{
@@ -179,7 +177,9 @@ int Chat::sizeList()
 void Chat::send_massage()
 {
 	Massage massage;
-	massage.create_massage(_active_user_login, _active_recipient_login, _active_user_name);
+	string mess;
+	getline(cin,mess);
+	massage.create_massage(mess, _active_user_name, _active_user_login, _active_recipient_login);
 	_massages.push_back(massage);
 }
 

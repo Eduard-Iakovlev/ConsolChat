@@ -6,7 +6,7 @@ public:
 	Massage() = default;
 	Massage(string, string, string, string);
 
-	void create_massage(string, string, string);
+	void create_massage(string, string, string, string);
 	void show_massage();
 
 	string login_sender();
