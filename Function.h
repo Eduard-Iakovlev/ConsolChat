@@ -6,7 +6,7 @@ using std::cout;
 
 template<typename t> t checkInput(const char first, const char last)
 {
-	char str[256]{'\0'};
+	char str[256]{};
 	int counter{ 0 };
 
 	while (true)
@@ -32,7 +32,11 @@ template<typename t> t checkInput(const char first, const char last)
 		else if (str[counter] == 13)
 		{
 			if (str[0] == 13) continue;
-			else break;
+			else
+			{
+				str[counter] = '\0';
+				break;
+			}
 		}
 		else
 		{
