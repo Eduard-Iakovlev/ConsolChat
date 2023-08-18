@@ -57,18 +57,18 @@ int main()
 			discussion = true;
 			switch (menu)
 			{
-			case 1:
+			case 1: // личная беседа
 				chat.showListUsers();
 				cout << " ID собеседника: ";
 				chat.get_recipient(menu);
 				chat.show_massege_list();
 				chat.send_massage();
 				break;
-			case 2:
+			case 2: // сообщение всем
 				chat.get_recipient(menu);
 				chat.send_massage();
 				break;
-			case 3:
+			case 3: // выход
 				chat.out_user();
 				discussion = false;
 				break;
