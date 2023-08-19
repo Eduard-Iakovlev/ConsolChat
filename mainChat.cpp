@@ -35,6 +35,7 @@ int main()
 				system("cls");
 				continue;
 			}
+			
 		}
 		else // регистрация нового пользоателя.
 		{

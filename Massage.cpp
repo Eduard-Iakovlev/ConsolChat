@@ -16,7 +16,7 @@ void Massage::create_massage(string mass, string name ,string login_sender, stri
 void Massage::show_massage()
 {
 	cout << "\n |" << _login_sender << " / " << _name_sender << "|\n";
-	cout << "______________________________________________________\n";
+	cout << "___________________:\n";
 	cout << _mass << "\n";
 	cout << "______________________________________________________\n";
 }

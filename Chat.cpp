@@ -56,7 +56,7 @@ void Chat::registration(int menu, bool* check_user)
 		{
 			if (user.user_login() == i.user_login() && user.user_password() == i.user_password())
 			{
-				get_user(counter, user.user_login(), user.user_name());
+				get_user(counter, i.user_login(), i.user_name());
 				cout << "\n\n Вы вошли как:\n\n";
 				_users.at(counter).showUser();
 				*check_user = true;
@@ -178,9 +178,22 @@ void Chat::send_massage()
 {
 	Massage massage;
 	string mess;
-	getline(cin,mess);
-	massage.create_massage(mess, _active_user_name, _active_user_login, _active_recipient_login);
-	_massages.push_back(massage);
+	char menu{'\0'};
+	cout << " Написать - \"Enter\", Выход - \"Esc\" -> ";
+	while (true)
+	{
+		menu = _getch();
+		if (menu == 27) break;
+		else if (menu == 13)
+		{
+			cout << "\n ";
+			getline(cin, mess);
+			massage.create_massage(mess, _active_user_name, _active_user_login, _active_recipient_login);
+			_massages.push_back(massage);
+			break;
+		}
+		else cout << " хм, можно повторить: ";
+	}
 }
 
 void Chat::show_massege_list()
