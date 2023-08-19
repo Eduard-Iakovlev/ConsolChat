@@ -9,14 +9,14 @@ Chat::Chat()
 	greeting();
 }
 
-Chat::Chat(string active_user_login, string active_recipient_login, string active_user_name,int active_user_ID, int active_recipirnt_ID) :
+Chat::Chat(string active_user_login, string active_recipient_login, string active_user_name, int active_user_ID, int active_recipirnt_ID) :
 	_active_user_login(active_user_login), _active_recipient_login(active_recipient_login), _active_user_name(active_user_name), _active_user_ID(active_user_ID), _active_recipient_ID(active_recipirnt_ID) {}
 
 
 void Chat::greeting()
 {
-		cout << "\n          Добро пожаловать!\n\n";
-} 
+	cout << "\n          Добро пожаловать!\n\n";
+}
 
 void Chat::farewell()
 {
@@ -40,7 +40,7 @@ int Chat::menu_chat()
 	return checkInput<int>('1', '3');
 }
 
-void Chat::registration(int menu, bool* check_user) 
+void Chat::registration(int menu, bool* check_user)
 {
 	User user;
 	*check_user = false;
@@ -52,15 +52,17 @@ void Chat::registration(int menu, bool* check_user)
 		user.get_user_password(checkInput<string>(48, 126));
 		int counter = 0;
 
-		for (User i: _users)
+		for (User i : _users)
 		{
 			if (user.user_login() == i.user_login() && user.user_password() == i.user_password())
 			{
 				get_user(counter, i.user_login(), i.user_name());
+				clear_display();
 				cout << "\n\n Вы вошли как:\n\n";
 				_users.at(counter).showUser();
 				*check_user = true;
 			}
+			counter++;
 		}
 		if (*check_user == false)
 		{
@@ -75,7 +77,7 @@ void Chat::registration(int menu, bool* check_user)
 		*check_user = true;
 		cout << " Введите имя (только русский алфавит): ";
 		user.get_user_name(checkInput<string>(192, 255));
-			cout << "\n Введите логин (латинский алфавит, цифры, символы): ";
+		cout << "\n Введите логин (латинский алфавит, цифры, символы): ";
 		bool check_login;
 		do
 		{
@@ -92,12 +94,13 @@ void Chat::registration(int menu, bool* check_user)
 				}
 			}
 		} while (!check_login);
-			cout << "\n Введите пароль (латинский алфавит, цифры, символы): ";
-			user.get_user_password(checkInput<string>(48, 126));
-		
+		cout << "\n Введите пароль (латинский алфавит, цифры, символы): ";
+		user.get_user_password(checkInput<string>(48, 126));
+
 		_users.push_back(user);
-		int size = _users.size()-1;
+		int size = _users.size() - 1;
 		get_user(size, _users.at(size).user_login(), _users.at(size).user_name());
+		clear_display();
 		cout << "\n\n Вы зарегестрированы как:\n\n";
 		_users.at(size).showUser();
 	}
@@ -112,6 +115,7 @@ void Chat::showListUsers()
 	for (User user : _users)
 	{
 		counter++;
+		if ((counter - 1) == _active_user_ID) continue;
 		cout << counter << " - ";
 		user.showUserName();
 	}
@@ -178,7 +182,7 @@ void Chat::send_massage()
 {
 	Massage massage;
 	string mess;
-	char menu{'\0'};
+	char menu{ '\0' };
 	cout << " Написать - \"Enter\", Выход - \"Esc\" -> ";
 	while (true)
 	{
@@ -207,9 +211,27 @@ void Chat::show_massege_list()
 		{
 			i.show_massage();
 		}
-		if(i.login_recipient() == "ALL_USERS") i.show_massage();
+		if (i.login_recipient() == "ALL_USERS") i.show_massage();
 	}
 }
+
+void Chat::one_user()
+{
+	cout << " вы пока единственный пользователь. \n Зайдите попозже, когда ещё кто ни будь зарегестрируется.\n";
+	out_user();
+	Sleep(2500);
+	clear_display();
+
+}
+
+void Chat::no_users()
+{
+	cout << "\n Зарегистрированных пользователей пока нет. \n Пожалуйста сначала зарегистрируйтесь.\n ";
+	Sleep(2000);
+	clear_display();
+}
+
+
 
 
 

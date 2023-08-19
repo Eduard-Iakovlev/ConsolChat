@@ -19,6 +19,7 @@ int main()
 	while (work)
 	{
 		menu = chat.logOrReg();
+		clear_display();
 		if (menu == 3) // выход из аккаунта
 		{
 			chat.farewell();
@@ -27,12 +28,23 @@ int main()
 		}
 		else if (menu == 1) // вход в аккаунт
 		{
+			if (chat.sizeList() == 0)
+			{
+				chat.no_users();
+				continue;
+			}
 			std::cout << " Вход \n";
 			chat.registration(menu, &check_user);
+			if (chat.sizeList() == 1)
+			{
+				chat.one_user();
+				continue;
+			}
+
 			if (check_user == false)
 			{
 				Sleep(2500);
-				system("cls");
+				clear_display();
 				continue;
 			}
 			
@@ -44,10 +56,7 @@ int main()
 		}
 		if (chat.sizeList() == 1)
 		{
-			cout << " вы пока единственный пользователь. \n Зайдите попозже, когда ещё кто ни будь зарегестрируется.\n";
-			chat.out_user();
-			Sleep(2500);
-			system("cls");
+			chat.one_user();
 			continue;
 		}
 		

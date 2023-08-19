@@ -50,3 +50,4 @@ template<typename t> t checkInput(const char first, const char last)
 			
 }
 
+void clear_display();

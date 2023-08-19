@@ -31,6 +31,10 @@ public:
 	void send_massage();
 	void show_massege_list();
 
+	void one_user();
+	void no_users();
+
+
 private:
 	std::vector<User> _users;
 	std::vector<Massage> _massages;
