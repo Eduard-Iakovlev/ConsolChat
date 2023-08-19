@@ -109,7 +109,8 @@ void Chat::registration(int menu, bool* check_user)
 void Chat::showListUsers()
 {
 	int counter{ 0 };
-
+	clear_display();
+	_users.at(_active_recipient_ID).showUser();
 	cout << "\n Участники чата:\n\n";
 
 	for (User user : _users)
