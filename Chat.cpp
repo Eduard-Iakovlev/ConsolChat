@@ -126,8 +126,12 @@ void Chat::showListUsers() // вывод списка участников чата
 		counter++;
 		if ((counter - 1) == _active_user_ID) continue;
 		cout << counter << " - ";
-		if (counter != 0) user.showUser();
-		else user.showUserName();
+		if ((counter -1) != 0) user.showUser();
+		else
+		{
+			user.showUserName();
+			cout << "\n";
+		}
 	}
 }
 
@@ -231,8 +235,7 @@ void Chat::show_massege_list() // вывод беседы
 		{
 			i.show_massage();
 		}
-		else if (_active_recipient_login == "ALL_USERS" && _active_recipient_login == i.login_recipient()/* && _active_recipient_login == i.login_sender()
-			|| i.login_recipient() == "ALL_USERS" && _active_user_login == i.login_sender()*/) i.show_massage();
+		else if (_active_recipient_login == "ALL_USERS" && _active_recipient_login == i.login_recipient()) i.show_massage();
 	}
 }
 

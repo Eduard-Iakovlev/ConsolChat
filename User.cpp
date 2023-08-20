@@ -11,7 +11,7 @@ void User::showUser()
 }
 void User::showUserName()
 {
-	cout << _name ;
+	cout << _name;
 }
 
 string User::user_name()
