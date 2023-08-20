@@ -106,6 +106,15 @@ void Chat::registration(int menu, bool* check_user)
 	}
 }
 
+void Chat::reg_all_user()
+{
+	User user;
+	user.get_user_login("ALL_USERS");
+	user.get_user_password("admin");
+	user.get_user_name("общий чат");
+	_users.push_back(user);
+}
+
 void Chat::showListUsers() // вывод списка участников чата
 {
 	int counter{ 0 };
@@ -117,7 +126,8 @@ void Chat::showListUsers() // вывод списка участников чата
 		counter++;
 		if ((counter - 1) == _active_user_ID) continue;
 		cout << counter << " - ";
-		user.showUser();
+		if (counter != 0) user.showUser();
+		else user.showUserName();
 	}
 }
 
@@ -216,13 +226,13 @@ void Chat::show_massege_list() // вывод беседы
 	_users.at(_active_recipient_ID).showUser();
 	for (Massage i : _massages)
 	{
-		if (_active_user_login == i.login_sender() && _active_recipient_login == i.login_recipient()
+		if (_active_user_login == i.login_sender() && _active_recipient_login == i.login_recipient() && _active_recipient_login != "ALL_USERS"
 			|| _active_user_login == i.login_recipient() && _active_recipient_login == i.login_sender())
 		{
 			i.show_massage();
 		}
-		if (i.login_recipient() == "ALL_USERS" && _active_recipient_login == i.login_sender()
-			|| i.login_recipient() == "ALL_USERS" && _active_user_login == i.login_sender()) i.show_massage();
+		else if (_active_recipient_login == "ALL_USERS" && _active_recipient_login == i.login_recipient()/* && _active_recipient_login == i.login_sender()
+			|| i.login_recipient() == "ALL_USERS" && _active_user_login == i.login_sender()*/) i.show_massage();
 	}
 }
 

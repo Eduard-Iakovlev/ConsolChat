@@ -15,6 +15,7 @@ int main()
 
 	
 	Chat chat;
+	chat.reg_all_user();
 
 	while (work)
 	{
@@ -28,14 +29,14 @@ int main()
 		}
 		else if (menu == 1) // вход в аккаунт
 		{
-			if (chat.sizeList() == 0)
+			if (chat.sizeList() == 1)
 			{
 				chat.no_users();
 				continue;
 			}
 			std::cout << " ¬ход \n";
 			chat.registration(menu, &check_user);
-			if (chat.sizeList() == 1)
+			if (chat.sizeList() == 2)
 			{
 				chat.one_user();
 				continue;
@@ -54,7 +55,7 @@ int main()
 			std::cout << " –гистраци€:\n";
 			chat.registration(menu, &check_user);
 		}
-		if (chat.sizeList() == 1)
+		if (chat.sizeList() == 2)
 		{
 			chat.one_user();
 			continue;

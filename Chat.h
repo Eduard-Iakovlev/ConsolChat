@@ -14,6 +14,7 @@ public:
 	int menu_chat();
 
 	void registration(int, bool*);
+	void reg_all_user();
 
 	void showListUsers();
 	string active_user_login();
