@@ -109,8 +109,7 @@ void Chat::registration(int menu, bool* check_user)
 void Chat::showListUsers()
 {
 	int counter{ 0 };
-	clear_display();
-	_users.at(_active_recipient_ID).showUser();
+	clear_show_user();
 	cout << "\n Участники чата:\n\n";
 
 	for (User user : _users)
@@ -118,7 +117,7 @@ void Chat::showListUsers()
 		counter++;
 		if ((counter - 1) == _active_user_ID) continue;
 		cout << counter << " - ";
-		user.showUserName();
+		user.showUser();
 	}
 }
 
@@ -188,13 +187,22 @@ void Chat::send_massage()
 	while (true)
 	{
 		menu = _getch();
-		if (menu == 27) break;
+		if (menu == 27)
+		{
+			clear_show_user();
+			break;
+		}
 		else if (menu == 13)
 		{
 			cout << "\n ";
 			getline(cin, mess);
 			massage.create_massage(mess, _active_user_name, _active_user_login, _active_recipient_login);
 			_massages.push_back(massage);
+			clear_show_user();
+			cout << " Сообщение для ";
+			if (_active_recipient_login == "ALL_USERS") cout << " всем";
+			else _users.at(_active_recipient_ID).showUserName();
+			cout << " отправлно \n";
 			break;
 		}
 		else cout << " хм, можно повторить: ";
@@ -203,6 +211,7 @@ void Chat::send_massage()
 
 void Chat::show_massege_list()
 {
+	clear_show_user();
 	cout << "\n Беседа с \n";
 	_users.at(_active_recipient_ID).showUser();
 	for (Massage i : _massages)
@@ -230,6 +239,12 @@ void Chat::no_users()
 	cout << "\n Зарегистрированных пользователей пока нет. \n Пожалуйста сначала зарегистрируйтесь.\n ";
 	Sleep(2000);
 	clear_display();
+}
+
+void Chat::clear_show_user()
+{
+	clear_display();
+	_users.at(_active_user_ID).showUser();
 }
 
 

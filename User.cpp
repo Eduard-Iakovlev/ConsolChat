@@ -6,12 +6,12 @@ User::User(string name, string login, string password) :
 
 void User::showUser()
 {
-	cout << " Имя:" << _name << "\n";
+	cout << " Имя:" << _name << " / ";
 	cout << " Логин:" << _login << "\n";
 }
 void User::showUserName()
 {
-	cout << _name << "\n";
+	cout << _name ;
 }
 
 string User::user_name()

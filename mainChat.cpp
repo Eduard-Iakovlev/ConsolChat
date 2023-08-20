@@ -80,6 +80,7 @@ int main()
 				break;
 			case 3: // выход
 				chat.out_user();
+				clear_display();
 				discussion = false;
 				break;
 

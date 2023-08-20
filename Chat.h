@@ -34,6 +34,8 @@ public:
 	void one_user();
 	void no_users();
 
+	void clear_show_user();
+
 
 private:
 	std::vector<User> _users;
