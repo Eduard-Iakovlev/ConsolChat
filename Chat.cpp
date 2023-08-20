@@ -44,7 +44,7 @@ void Chat::registration(int menu, bool* check_user)
 {
 	User user;
 	*check_user = false;
-	if (menu == 1)
+	if (menu == 1) // вход в чат
 	{
 		cout << "\n Введите логин: ";
 		user.get_user_login(checkInput<string>(48, 126));
@@ -72,7 +72,7 @@ void Chat::registration(int menu, bool* check_user)
 		}
 
 	}
-	else
+	else // регистрация нового пользователя
 	{
 		*check_user = true;
 		cout << " Введите имя (только русский алфавит): ";
@@ -106,7 +106,7 @@ void Chat::registration(int menu, bool* check_user)
 	}
 }
 
-void Chat::showListUsers()
+void Chat::showListUsers() // вывод списка участников чата
 {
 	int counter{ 0 };
 	clear_show_user();
@@ -209,7 +209,7 @@ void Chat::send_massage()
 	}
 }
 
-void Chat::show_massege_list()
+void Chat::show_massege_list() // вывод беседы
 {
 	clear_show_user();
 	cout << "\n Беседа с \n";
@@ -221,7 +221,8 @@ void Chat::show_massege_list()
 		{
 			i.show_massage();
 		}
-		if (i.login_recipient() == "ALL_USERS") i.show_massage();
+		if (i.login_recipient() == "ALL_USERS" && _active_recipient_login == i.login_sender()
+			|| i.login_recipient() == "ALL_USERS" && _active_user_login == i.login_sender()) i.show_massage();
 	}
 }
 
