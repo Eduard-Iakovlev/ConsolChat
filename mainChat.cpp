@@ -5,7 +5,7 @@
 
 int main()
 {
-	setlocale(LC_ALL, "");
+	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
 
 	bool work{ true };
