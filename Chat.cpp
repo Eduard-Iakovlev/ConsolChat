@@ -88,7 +88,7 @@ void Chat::registration(int menu, bool* check_user)
 				if (user.user_login() == i.user_login())
 				{
 					user.clear_login();
-					cout << "\n Данный логин занят, выбрите другой: ";
+					cout << "\n Данный логин занят, выберите другой: ";
 					check_login = false;
 					break;
 				}
@@ -101,7 +101,7 @@ void Chat::registration(int menu, bool* check_user)
 		int size = _users.size() - 1;
 		get_user(size, _users.at(size).user_login(), _users.at(size).user_name());
 		clear_display();
-		cout << "\n\n Вы зарегестрированы как:\n\n";
+		cout << "\n\n Вы зарегистрированы как:\n\n";
 		_users.at(size).showUser();
 	}
 }
@@ -216,7 +216,7 @@ void Chat::send_massage()
 			cout << " Сообщение для ";
 			if (_active_recipient_login == "ALL_USERS") cout << " всем";
 			else _users.at(_active_recipient_ID).showUserName();
-			cout << " отправлно \n";
+			cout << " отправлено \n";
 			break;
 		}
 		else cout << " хм, можно повторить: ";
@@ -243,7 +243,7 @@ void Chat::one_user()
 {
 	cout << " вы пока единственный пользователь. \n Зайдите попозже, когда ещё кто ни будь зарегестрируется.\n";
 	out_user();
-	Sleep(2500);
+	Sleep(3000);
 	clear_display();
 
 }
@@ -251,7 +251,7 @@ void Chat::one_user()
 void Chat::no_users()
 {
 	cout << "\n Зарегистрированных пользователей пока нет. \n Пожалуйста сначала зарегистрируйтесь.\n ";
-	Sleep(2000);
+	Sleep(3000);
 	clear_display();
 }
 

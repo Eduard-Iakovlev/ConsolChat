@@ -1,7 +1,7 @@
 #pragma once
 #include "Libraries.h"
 
-using std::cout;
+//using std::cout;
 
 
 template<typename t> t checkInput(const char first, const char last)

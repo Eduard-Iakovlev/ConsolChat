@@ -50,11 +50,12 @@ int main()
 			}
 			
 		}
-		else // регистрация нового пользоателя.
+		else // регистрация нового пользователя.
 		{
-			std::cout << " Ргистрация:\n";
+			std::cout << " Регистрация:\n";
 			chat.registration(menu, &check_user);
 		}
+
 		if (chat.sizeList() == 2)
 		{
 			chat.one_user();
