@@ -1,6 +1,6 @@
 #pragma once
 #include "User.h"
-#include "Massage.h"
+#include "Message.h"
 #include "Libraries.h"
 
 class Chat
@@ -29,8 +29,8 @@ public:
 
 	int sizeList();
 
-	void send_massage();
-	void show_massege_list();
+	void send_message();
+	void show_message_list();
 
 	void one_user();
 	void no_users();
@@ -40,7 +40,7 @@ public:
 
 private:
 	std::vector<User> _users;
-	std::vector<Massage> _massages;
+	std::vector<Message> _messages;
 	string _active_user_login;
 	string _active_recipient_login;
 	string _active_user_name;

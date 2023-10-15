@@ -15,20 +15,20 @@ int main()
 
 	
 	Chat chat;
-	chat.reg_all_user();
+	chat.reg_all_user(); // регистрация аккаунта общего чата
 
 	while (work)
 	{
 		menu = chat.logOrReg();
 		clear_display();
-		if (menu == 3) // выход из аккаунта
-		{
+		// выход из аккаунта
+		if (menu == 3) {
 			chat.farewell();
 			work = false;
 			break;
 		}
-		else if (menu == 1) // вход в аккаунт
-		{
+		// вход в аккаунт
+		else if (menu == 1){
 			if (chat.sizeList() == 1)
 			{
 				chat.no_users();
@@ -50,20 +50,21 @@ int main()
 			}
 			
 		}
-		else // регистрация нового пользователя.
+		//регистрация нового пользователя
+		else
 		{
 			std::cout << " Регистрация:\n";
 			chat.registration(menu, &check_user);
 		}
-
+		// проверка кол-ва зарегистрированных
 		if (chat.sizeList() == 2)
 		{
 			chat.one_user();
 			continue;
 		}
 		
-
-		do // работа аккаунта
+		// работа аккаунта
+		do
 		{
 			menu = chat.menu_chat();
 			discussion = true;
@@ -73,12 +74,12 @@ int main()
 				chat.showListUsers();
 				cout << " ID собеседника: ";
 				chat.get_recipient(menu);
-				chat.show_massege_list();
-				chat.send_massage();
+				chat.show_message_list();
+				chat.send_message();
 				break;
 			case 2: // сообщение всем
 				chat.get_recipient(menu);
-				chat.send_massage();
+				chat.send_message();
 				break;
 			case 3: // выход
 				chat.out_user();
@@ -91,9 +92,5 @@ int main()
 			}
 
 		} while (discussion);
-
-
 	}
-
-	
 }

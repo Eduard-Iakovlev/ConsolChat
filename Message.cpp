@@ -1,11 +1,11 @@
-#include "Massage.h"
+#include "Message.h"
 #include "Libraries.h"
 #include "Function.h"
 
-Massage::Massage(string mass, string name, string sender, string recipient) : 
+Message::Message(string mass, string name, string sender, string recipient) : 
 	_mass(mass), _name_sender(name), _login_sender(sender), _login_recipient(recipient) {}
 
-void Massage::create_massage(string mass, string name ,string login_sender, string login_recipient)
+void Message::create_message(string mass, string name ,string login_sender, string login_recipient)
 {
 	_mass = mass;
 	_name_sender = name;
@@ -13,7 +13,7 @@ void Massage::create_massage(string mass, string name ,string login_sender, stri
 	_login_recipient = login_recipient;
 }
 
-void Massage::show_massage()
+void Message::show_message()
 {
 	cout << "\n |" << _login_sender << " / " << _name_sender << "|\n";
 	cout << "--------------------:\n";
@@ -21,12 +21,12 @@ void Massage::show_massage()
 	cout << "--------------------------------------------------------\n";
 }
 
-string Massage::login_sender()
+string Message::login_sender()
 {
 	return _login_sender;
 }
 
-string Massage::login_recipient()
+string Message::login_recipient()
 {
 	return _login_recipient;
 }

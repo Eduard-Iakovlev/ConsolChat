@@ -24,7 +24,7 @@
     <ClCompile Include="User.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Massage.cpp">
+    <ClCompile Include="Message.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Function.cpp">
@@ -44,7 +44,7 @@
     <ClInclude Include="Libraries.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Massage.h">
+    <ClInclude Include="Message.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

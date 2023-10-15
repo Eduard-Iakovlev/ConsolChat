@@ -6,8 +6,8 @@ User::User(string name, string login, string password) :
 
 void User::showUser()
 {
-	cout << " Имя:" << _name << " / ";
-	cout << " Логин:" << _login << "\n";
+	cout << " Логин:" << _login << " / ";
+	cout << " Имя:" << _name << "\n";
 }
 void User::showUserName()
 {

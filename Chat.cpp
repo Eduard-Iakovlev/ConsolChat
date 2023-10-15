@@ -1,6 +1,6 @@
 #include "Chat.h"
 #include "Libraries.h"
-#include "Massage.h"
+#include "Message.h"
 #include "Function.h"
 
 
@@ -70,7 +70,6 @@ void Chat::registration(int menu, bool* check_user)
 			Sleep(2000);
 			return;
 		}
-
 	}
 	else // регистрация нового пользователя
 	{
@@ -192,9 +191,9 @@ int Chat::sizeList()
 	return _users.size();
 }
 
-void Chat::send_massage()
+void Chat::send_message()
 {
-	Massage massage;
+	Message message;
 	string mess;
 	char menu{ '\0' };
 	cout << " Написать - \"Enter\", Выход - \"Esc\" -> ";
@@ -210,8 +209,8 @@ void Chat::send_massage()
 		{
 			cout << "\n ";
 			getline(cin, mess);
-			massage.create_massage(mess, _active_user_name, _active_user_login, _active_recipient_login);
-			_massages.push_back(massage);
+			message.create_message(mess, _active_user_name, _active_user_login, _active_recipient_login);
+			_messages.push_back(message);
 			clear_show_user();
 			cout << " Сообщение для ";
 			if (_active_recipient_login == "ALL_USERS") cout << " всем";
@@ -223,25 +222,25 @@ void Chat::send_massage()
 	}
 }
 
-void Chat::show_massege_list() // вывод беседы
+void Chat::show_message_list() // вывод беседы
 {
 	clear_show_user();
 	cout << "\n Беседа с \n";
 	_users.at(_active_recipient_ID).showUser();
-	for (Massage i : _massages)
+	for (Message i : _messages)
 	{
 		if (_active_user_login == i.login_sender() && _active_recipient_login == i.login_recipient() && _active_recipient_login != "ALL_USERS"
 			|| _active_user_login == i.login_recipient() && _active_recipient_login == i.login_sender())
 		{
-			i.show_massage();
+			i.show_message();
 		}
-		else if (_active_recipient_login == "ALL_USERS" && _active_recipient_login == i.login_recipient()) i.show_massage();
+		else if (_active_recipient_login == "ALL_USERS" && _active_recipient_login == i.login_recipient()) i.show_message();
 	}
 }
 
 void Chat::one_user()
 {
-	cout << " вы пока единственный пользователь. \n Зайдите попозже, когда ещё кто ни будь зарегестрируется.\n";
+	cout << " вы пока единственный пользователь. \n Зайдите попозже, когда ещё кто ни будь зарегистрируется.\n";
 	out_user();
 	Sleep(3000);
 	clear_display();

@@ -1,13 +1,13 @@
 #pragma once
 # include "Libraries.h"
-class Massage
+class Message
 {
 public:
-	Massage() = default;
-	Massage(string, string, string, string);
+	Message() = default;
+	Message(string, string, string, string);
 
-	void create_massage(string, string, string, string);
-	void show_massage();
+	void create_message(string, string, string, string);
+	void show_message();
 
 	string login_sender();
 	string login_recipient();
